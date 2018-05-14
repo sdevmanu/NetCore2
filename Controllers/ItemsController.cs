@@ -24,26 +24,41 @@ namespace NetCore2.Controllers
         [HttpGet]
         public IEnumerable<Item> GetItems()
         {
-            return _context.Items;
+            try {
+                return _context.Items;
+            }
+            catch  (Exception ex)
+            {
+                return null;
+            }
+            
+           
         }
 
         // GET: api/Items/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetItem([FromRoute] long id)
+        public async Task<IActionResult> GetItem([FromRoute] int id)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                var item = await _context.Items.SingleOrDefaultAsync(m => m.Id == id);
+
+                if (item == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(item);
             }
-
-            var item = await _context.Items.SingleOrDefaultAsync(m => m.Id == id);
-
-            if (item == null)
+            catch (Exception Ex)
             {
-                return NotFound();
+                return null;
             }
-
-            return Ok(item);
         }
 
         // PUT: api/Items/5

@@ -14,7 +14,6 @@ E:\Projects_MVC\NetCore2\NetCore2\bin\Debug\netcoreapp2.0\NetCore2.runtimeconfig
 E:\Projects_MVC\NetCore2\NetCore2\bin\Debug\netcoreapp2.0\NetCore2.runtimeconfig.dev.json
 E:\Projects_MVC\NetCore2\NetCore2\bin\Debug\netcoreapp2.0\NetCore2.dll
 E:\Projects_MVC\NetCore2\NetCore2\bin\Debug\netcoreapp2.0\NetCore2.pdb
-E:\Projects_MVC\NetCore2\NetCore2\obj\Debug\netcoreapp2.0\NetCore2.csprojResolveAssemblyReference.cache
 E:\Projects_MVC\NetCore2\NetCore2\obj\Debug\netcoreapp2.0\NetCore2.csproj.CoreCompileInputs.cache
 E:\Projects_MVC\NetCore2\NetCore2\obj\Debug\netcoreapp2.0\NetCore2.AssemblyInfoInputs.cache
 E:\Projects_MVC\NetCore2\NetCore2\obj\Debug\netcoreapp2.0\NetCore2.AssemblyInfo.cs
