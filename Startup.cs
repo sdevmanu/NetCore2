@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using NetCore2.Models;
+using NetCore2.Repositories;
 using Microsoft.AspNetCore.Http;
 
 namespace NetCore2
@@ -24,6 +25,8 @@ namespace NetCore2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<TodoContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //http://www.forevolve.com/en/articles/2017/08/14/design-patterns-web-api-service-and-repository-part-2/
+            services.AddTransient<IItemService, ItemService>();
             //services.AddDbContext<TodoContext>(opt =>
             //    opt.UseInMemoryDatabase("TodoList"));
             services.AddMvc();

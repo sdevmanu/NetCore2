@@ -3,17 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using NetCore2.Models;
+using NetCore2.Repositories;
 
 namespace NetCore2.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
-        // GET api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly IItemService _service;
+        public ValuesController(IItemService service)
         {
-            return new string[] { "value1", "value2" };
+            _service=service;
+
+        }
+        // GET api/values
+        //public IEnumerable<string> Get()
+        //{
+        //    return new string[] { "value1", "value2" };
+        //}
+        [HttpGet]
+        public IEnumerable<Item> Get()
+        {
+            try
+            {
+              return _service.FetchItems();
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
         // GET api/values/5

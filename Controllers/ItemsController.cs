@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NetCore2.Models;
+using NetCore2.Repositories;
+
+using System.ComponentModel.DataAnnotations;
 
 namespace NetCore2.Controllers
 {
@@ -14,25 +17,27 @@ namespace NetCore2.Controllers
     public class ItemsController : Controller
     {
         private readonly TodoContext _context;
-
+      
+        
         public ItemsController(TodoContext context)
+            // public ItemsController(TodoContext context)
         {
-            _context = context;
+            _context = context;      
         }
-
+        
         // GET: api/Items
         [HttpGet]
         public IEnumerable<Item> GetItems()
         {
-            try {
+            try
+            {
                 return _context.Items;
             }
-            catch  (Exception ex)
+            catch (Exception ex)
             {
                 return null;
             }
-            
-           
+
         }
 
         // GET: api/Items/5
